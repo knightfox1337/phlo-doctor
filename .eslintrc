@@ -6,8 +6,8 @@
             4
         ],
         "linebreak-style": [
-            2,
-            "unix"
+            0,
+            "windows"
         ],
         "semi": [
             2,
@@ -20,5 +20,8 @@
         "node": true,
         "mocha": true
     },
-    "extends": "eslint:recommended"
+    "extends": "eslint:recommended",
+    "parserOptions": {
+        "sourceType": "module"
+    }
 }
