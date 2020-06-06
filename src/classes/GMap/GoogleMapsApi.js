@@ -16,7 +16,7 @@ class GoogleMapsApi {
     constructor(gApiKey) {
         // api key for google maps
         this.apiKey = gApiKey;
-
+        this.map = null;
         // Set global callback
         if (!window._GoogleMapsApi) {
             this.callbackName = "_GoogleMapsApi.mapLoaded";

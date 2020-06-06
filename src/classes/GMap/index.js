@@ -1,6 +1,7 @@
 import GoogleMapsApi from './GoogleMapsApi';
 import { stylers }   from './stylers';
 import markerTmpl from './marker.tmpl';
+import { DataSet } from './DataSet';
 /*global google*/ 
 
 /**
@@ -9,17 +10,17 @@ import markerTmpl from './marker.tmpl';
  * @param {string} el - Google Map selector
  */
 export function GMap(el, apiKey) {
-
+    /*eslint-disable no-console */
     const gApiKey = apiKey;
-    //console.log(gApiKey);
     const gmapApi = new GoogleMapsApi(gApiKey);
     const mapEl   = document.querySelector(el);
     const data    = {
         lat:     parseFloat(mapEl.dataset.lat ? mapEl.dataset.lat : 0),
         lng:     parseFloat(mapEl.dataset.lng ? mapEl.dataset.lng : 0),
         address: mapEl.dataset.address,
-        title:   mapEl.dataset.title ? mapEl.dataset.title: "Map",
+        title:   mapEl.dataset.title ? mapEl.dataset.title: "Your location",
         zoom:    parseFloat(mapEl.dataset.zoom ? mapEl.dataset.zoom: 12),
+        type:   mapEl.dataset.type ? mapEl.dataset.type : "user",
     };
     // Call map renderer
     gmapApi.load().then(() => {
@@ -46,7 +47,14 @@ function renderMap(mapEl, data) {
 
     const map = new google.maps.Map(mapEl, options);
 
-    renderMarker(map, data);
+    const mergedData = DataSet.concat(data);
+
+
+    mergedData.forEach((mData) => {
+        renderMarker(map, mData);
+    });
+        
+    
 }
 
 /**
@@ -56,11 +64,18 @@ function renderMap(mapEl, data) {
  * @param {object} data
  */
 function renderMarker(map, data) {
+    /*eslint-disable no-console */
+
+    
 
     const icon = {
-        url:        stylers.icons.red,
-        scaledSize: new google.maps.Size(80, 80)
+        url:        (data.type === "user") ? stylers.icons.user : stylers.icons.doctor,
+        scaledSize: (data.type === "user") ? new google.maps.Size(20, 20) : new google.maps.Size(30, 30)
     };
+    
+    
+
+
 
     const tmpl = markerTmpl(data);
 
