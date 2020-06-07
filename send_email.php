@@ -125,12 +125,12 @@
 
      
      // Message body (HTML)
-     $mail->Body    = "Dear $first_name} {$last_name},<br/><br/>
+     $mail->Body    = "Dear {$first_name} {$last_name},<br/><br/>
      You have booked your appointment with <strong>{$title}</strong>!<br/>
      at {$_GET['address']} between {$timeslot}";
 
      // Message body (Plaintext)
-     $mail->AltBody = "Dear $first_name} {$last_name},<br/><br/>
+     $mail->AltBody = "Dear {$first_name} {$last_name},<br/><br/>
      You have booked your appointment with <strong>{$title}</strong>!<br/>
      at {$_GET['address']} between {$timeslot}";
 
