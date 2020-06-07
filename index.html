@@ -11,27 +11,49 @@
 
         <section class="map">
             <div class="map-wrapper">
-              <!-- <div
-                id="map"
-                class="js-map"
-                data-lat="55.805316"
-                data-lng="-3.958901"
-                data-address="test 1"
-                data-title="Marker Title"
-                data-zoom="14">
-                <div
-                class="marker"
-                data-lat="55.805316"
-                data-lng="-3.958901"
-                data-address="test 1"
-                data-title="Marker Title">
-                </div>
-              </div>
-            </div> -->
           </section>
 
-    </div>
-    
+    </div>    
     <script type="text/javascript" src="dist/bundle.js"></script>
+    <div class="modal micromodal-slide" id="modal" aria-hidden="true">
+      <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+        <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+          <header class="modal__header">
+            <h2 class="modal__title" id="modal-title">
+              Micromodal
+            </h2>
+            <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
+          </header>
+          
+          <main class="modal__content" id="modal-content">
+          <span>Location:</span>
+          <p id="modal-location"></p>
+          <p>Please fill out the following information</p>
+          <input type="text" id="f-name" placeholder="First Name">
+          <input type="text" id="l-name" placeholder="Last Name">
+          <input type="email" id="email" placeholder="Your Email">
+          <div class="timeslots">
+            <p>Please select a time slot that you wish to arrange with the doctor...</p>
+            <label for="timeslot" id="timeslot-warning" style="display: none;"></label>
+            <select id="timeslot">
+              <option>Please select a time slot</option>
+              <option>9am till 10am</option>
+              <option>10am till 11am</option>
+              <option>11am till 12pm</option>
+              <option>12pm till 1pm</option>
+              <option>1pm till 2pm</option>
+              <option>2pm till 3pm</option>
+              <option>3pm till 4pm</option>
+              <option>4pm till 5pm</option>
+            </select>
+          </div>
+          </main>
+          <footer class="modal__footer">
+            <span id="post-message" style="display: none;"></span>
+            <button class="modal__btn modal__btn-primary" id="book-now">Book Now</button>
+          </footer>
+        </div>
+      </div>
+    </div>
 </body>
 </html>

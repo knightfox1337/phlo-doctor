@@ -37,7 +37,7 @@ class GoogleMapsApi {
         if (!this.promise) {
             this.promise = new Promise((resolve) => {
                 this.resolve = resolve;
-
+                // If cant find google, then inject script into dom
                 if (typeof window.google === "undefined") {
                     const script = document.createElement("script");
                     script.src = `//maps.googleapis.com/maps/api/js?key=${this.apiKey}&callback=${this.callbackName}`;

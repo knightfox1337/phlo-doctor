@@ -2,6 +2,7 @@ export const stylers = {
 
     /**
    * Map Styler JSON
+   * can be replaced with snazzy map designs
    */
     styles: [
         {

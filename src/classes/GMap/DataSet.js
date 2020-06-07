@@ -1,3 +1,8 @@
+/*
+* Sample dataset for doctors
+* This would ideally come as json from an Api
+*/
+
 export const DataSet = [
     {
         lat:     55.796070,
